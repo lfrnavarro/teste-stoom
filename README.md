@@ -6,3 +6,5 @@ Para rodar o projeto faça os seguintes passos:
 2. Levante a aplicação 
 3. Conecte-se ao banco de dados e rode o script inserts.sql dentro do diretório resources
 4. Localize o arquivo Teste Stoom.postman_collection.json e importe a collection para o seu Postman
+
+OBS: Não tive tempo hábil para fazer a parte dos testes
