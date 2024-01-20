@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres
+    #volumes:
+    #  - ./inserts.sql:/docker-entrypoint-initdb.d/inserts.sql
+    environment:
+      POSTGRES_DB: "store"
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "5432:5432"
