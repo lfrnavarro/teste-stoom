@@ -13,19 +13,19 @@ public class CategoryBO implements ICategoryBO {
     private CategoryRepository categoryRepository;
 
     @Override
-    public void enableCategory(Long id){
+    public Category enableCategory(Long id){
         Category categoryActual = categoryRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Category not found with ID: " + id));
         categoryActual.setActive(true);
-        categoryRepository.save(categoryActual);
+        return categoryRepository.save(categoryActual);
     }
 
     @Override
-    public void disableCategory(Long id){
+    public Category disableCategory(Long id){
         Category categoryActual = categoryRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Category not found with ID: " + id));
         categoryActual.setActive(false);
-        categoryRepository.save(categoryActual);
+        return categoryRepository.save(categoryActual);
     }
 
 }

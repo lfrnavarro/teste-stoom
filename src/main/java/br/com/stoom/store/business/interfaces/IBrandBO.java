@@ -1,12 +1,9 @@
 package br.com.stoom.store.business.interfaces;
 
-import br.com.stoom.store.dto.request.ProductDTORequest;
-import br.com.stoom.store.dto.response.ProductDTOResponse;
-
-import java.util.List;
+import br.com.stoom.store.model.Brand;
 
 public interface IBrandBO {
-    public void enableBrand(Long id);
+    public Brand enableBrand(Long id);
 
-    public void disableBrand(Long id);
+    public Brand disableBrand(Long id);
 }

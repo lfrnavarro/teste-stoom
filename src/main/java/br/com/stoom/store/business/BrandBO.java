@@ -13,19 +13,19 @@ public class BrandBO implements IBrandBO {
     private BrandRepository brandRepository;
 
     @Override
-    public void enableBrand(Long id){
+    public Brand enableBrand(Long id){
         Brand brandActual = brandRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Brand not found with ID: " + id));
         brandActual.setActive(true);
-        brandRepository.save(brandActual);
+        return brandRepository.save(brandActual);
     }
 
     @Override
-    public void disableBrand(Long id){
+    public Brand disableBrand(Long id){
         Brand brandActual = brandRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Brand not found with ID: " + id));
         brandActual.setActive(false);
-        brandRepository.save(brandActual);
+        return brandRepository.save(brandActual);
     }
 
 }

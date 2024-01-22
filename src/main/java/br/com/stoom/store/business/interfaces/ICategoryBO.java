@@ -1,7 +1,9 @@
 package br.com.stoom.store.business.interfaces;
 
-public interface ICategoryBO {
-    public void enableCategory(Long id);
+import br.com.stoom.store.model.Category;
 
-    public void disableCategory(Long id);
+public interface ICategoryBO {
+    public Category enableCategory(Long id);
+
+    public Category disableCategory(Long id);
 }

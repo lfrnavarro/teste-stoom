@@ -8,13 +8,13 @@ import java.util.List;
 
 public interface IProductBO {
 
-    List<ProductDTOResponse> findAll();
+    public List<ProductDTOResponse> findAll();
 
-    void save(ProductDTORequest productDTORequest);
+    public Product save(ProductDTORequest productDTORequest);
 
-    void update(Long id, ProductDTORequest productDTORequest);
+    public Product update(Long id, ProductDTORequest productDTORequest);
 
-    void delete(Long id);
+    public void delete(Long id);
 
     public List<ProductDTOResponse> findByDescription(String description);
 
@@ -22,7 +22,7 @@ public interface IProductBO {
 
     public List<ProductDTOResponse> findByCategory(String category);
 
-    public void enableProduct(Long id);
+    public Product enableProduct(Long id);
 
-    public void disableProduct(Long id);
+    public Product disableProduct(Long id);
 }

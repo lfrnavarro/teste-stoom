@@ -26,13 +26,13 @@ public class ProductBO implements IProductBO {
     }
 
     @Override
-    public void save(ProductDTORequest productDTORequest){
+    public Product save(ProductDTORequest productDTORequest){
         Product product = productMapper.mapToProduct(productDTORequest);
-        productRepository.save(product);
+        return productRepository.save(product);
     }
 
     @Override
-    public void update(Long id, ProductDTORequest productDTORequest){
+    public Product update(Long id, ProductDTORequest productDTORequest){
         Product productActual = productRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Product not found with ID: " + id));
         Product productUpdate = productMapper.mapToProduct(productDTORequest);
@@ -42,7 +42,7 @@ public class ProductBO implements IProductBO {
         productActual.setDescription(productUpdate.getDescription());
         productActual.setPrice(productUpdate.getPrice());
         productActual.setBrand(productUpdate.getBrand());
-        productRepository.save(productActual);
+        return productRepository.save(productActual);
     }
 
     @Override
@@ -68,19 +68,19 @@ public class ProductBO implements IProductBO {
     }
 
     @Override
-    public void enableProduct(Long id){
+    public Product enableProduct(Long id){
         Product productActual = productRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Product not found with ID: " + id));
         productActual.setActive(true);
-        productRepository.save(productActual);
+        return productRepository.save(productActual);
     }
 
     @Override
-    public void disableProduct(Long id){
+    public Product disableProduct(Long id){
         Product productActual = productRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Product not found with ID: " + id));
         productActual.setActive(false);
-        productRepository.save(productActual);
+        return productRepository.save(productActual);
     }
 
 }
